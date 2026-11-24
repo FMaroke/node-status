@@ -1,0 +1,4 @@
+# FMCE Node Status - no direct web access to this directory (Apache 2.4).
+# Files here are read by PHP/cron from the file system, never over HTTP.
+Options -Indexes
+Require all denied

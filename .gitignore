@@ -1,0 +1,33 @@
+# Local/secret configuration
+php/config.php
+php/config.php_neu
+remote_files/nodestat_remote_config.php
+
+# Local instructions and settings for Claude Code (internal, never public)
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Runtime data (cache files); only data/.htaccess is tracked
+data/*
+!data/.htaccess
+
+# Generated QR code images
+img/donation-qr-*.svg
+
+# Local crontabs (only the *.sample files are tracked)
+doc/fmce-node-status
+doc/crontab_remote.txt
+
+# Private working folders (review hand-over, skill transfer for the chat)
+_git_ignore/
+_skill-import/
+
+# Editor / OS leftovers
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# Always track .htaccess files, even if a global ignore rule says otherwise
+!.htaccess
+!**/.htaccess

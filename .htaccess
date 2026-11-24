@@ -1,0 +1,43 @@
+# FMCE Node Status - web root .htaccess (Apache 2.4)
+
+Options -Indexes -MultiViews
+
+# Never serve hidden directories and files (.git/, .svn/, .claude/, .env, ...).
+# FilesMatch only checks the last part of the path (the file name), so it does not
+# protect files inside a hidden directory: /.git/config or /.git/HEAD would be served.
+# RedirectMatch checks the whole URL path: every part that starts with a dot gives
+# 404, except /.well-known/ (needed e.g. for Let's Encrypt). Needs mod_alias
+# (part of every standard Apache 2.4); no <IfModule> on purpose, so the rule
+# never silently disappears.
+RedirectMatch 404 "/\.(?!well-known/)"
+
+# Second safeguard for hidden files (.htaccess, .env, ...) in any directory
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Never serve scripts, samples, backups, logs and docs that are not meant for visitors
+<FilesMatch "\.(sh|sample|bak|log|sql|ini|md)$">
+    Require all denied
+</FilesMatch>
+
+# Force HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    # Google Charts loads further scripts and styles from www.gstatic.com. No 'unsafe-inline':
+    # the page has no style attributes or <style> elements; Google Charts and js/*.js set
+    # styles through the CSSOM (element.style), which the CSP does not block.
+    # Images only from the own server (Google Charts draws SVG and loads no images).
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.gstatic.com; style-src 'self' https://www.gstatic.com; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+    # Enable once HTTPS works permanently for all (sub)domains:
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>

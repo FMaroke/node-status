@@ -1,0 +1,5 @@
+MAILTO=""
+# m h  dom mon dow   command
+# FMCE Node Status: jobs on the NODE server (only needed if the node runs on another server)
+# Free disk space for the status page (remote_files/save_diskspace.php)
+*/5 * * * * php /your/path/to/save_diskspace.php > /dev/null 2>&1

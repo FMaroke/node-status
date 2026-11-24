@@ -1,0 +1,5 @@
+MAILTO=""
+# Copy to /etc/cron.d/fmce-node-status (owner root, mode 0644, no dot in the file name).
+# Replace "username" with the web server user of the site (e.g. www-data) and the path.
+# m h  dom mon dow  user      command
+* * * * * username /usr/bin/php /your/path/to/webroot/php/collector.php > /dev/null 2>&1

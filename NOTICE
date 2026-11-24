@@ -1,0 +1,50 @@
+FMCE Node Status
+Copyright 2023-2026 FMCE Concept UG (haftungsbeschränkt), https://fmce.de
+
+This product is a derivative of "Bitcoin Daemon Status Page" (bitcoind-status),
+Copyright 2015 Craig Watson, https://github.com/craigwatson/bitcoind-status,
+licensed under the Apache License, Version 2.0. The original project has no
+NOTICE file. FMCE Concept UG has modified the files of the original project;
+modified files say so in their header.
+
+FMCE Node Status as a whole is licensed under the Apache License, Version 2.0
+(see LICENSE). It includes the following third-party components, which keep
+their own licenses:
+
+1. EasyBitcoin-PHP Enhanced (php/easybitcoin.php)
+   Based on EasyBitcoin-PHP by aceat64, https://github.com/aceat64/EasyBitcoin-PHP,
+   Copyright (c) 2013 Andrew LeCody; enhanced by community contributors.
+   License: MIT (php/LICENSE_easybitcoin, see also php/README_easybitcoin.md).
+   Modified by FMCE Concept UG (version 1.3, changes listed in the file header).
+
+2. PHP QR Code 1.1.4 (php/phpqrcode.php)
+   Copyright (C) 2010 Dominik Dzienia, http://phpqrcode.sourceforge.net/
+   License: GNU Lesser General Public License, version 3 or later
+   (php/LICENSE_phpqrcode). Modified by FMCE Concept UG (changes marked in the
+   file header, "Modified by FMCE Concept UG").
+
+3. SortTable version 2 (js/sorttable.js)
+   Stuart Langridge, http://www.kryogenix.org/code/browser/sorttable/
+   License: X11, http://www.kryogenix.org/code/browser/licence.html
+   Unchanged (contains code for old Internet Explorer versions).
+
+4. Google Charts loader (js/google_corechart.js)
+   Copyright The Closure Library Authors.
+   License: Apache License, Version 2.0 (SPDX-License-Identifier in the file).
+   The loader fetches the chart library from www.gstatic.com at run time.
+
+5. Poppins font (fonts/Poppins-*.woff), version 4.004
+   Copyright 2020 The Poppins Project Authors, https://github.com/itfoundry/Poppins
+   License: SIL Open Font License, Version 1.1 (fonts/OFL.txt).
+
+6. Country flag sprite (img/flags.png, css/flags.css)
+   Appears to be based on the famfamfam flag icons by Mark James,
+   http://www.famfamfam.com/lab/icons/flags/ (public domain, free for any use).
+   Taken over from bitcoind-status, which names no source.
+
+7. Bitcoin logo (img/bitcoin_org_dark.svg, img/bitcoin_org_light.svg)
+   Public domain, source: bitcoin.org; wordmark colour adapted.
+
+Other logos in img/ (blockchain.com, mempool.space, bitnodes.io, btcnodes.io,
+bitnod.es, CoinMarketCap, DSN, Blockstream) are trademarks of their owners and
+are only used to link to their services.

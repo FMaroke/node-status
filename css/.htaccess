@@ -1,0 +1,2 @@
+# Public static assets: only disable directory listing.
+Options -Indexes
